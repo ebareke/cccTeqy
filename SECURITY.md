@@ -19,7 +19,7 @@ Security updates apply to the **latest stable release** of cccTeqy.
 If you discover a potential security issue, please report it **privately**.
 
 ## Contact:
-📧 **epigenomics.pipeline.security@gmail.com** *(placeholder private contact)*
+📧 **eb.bioinfo@pm.me**
 
 Please include:
 - Description of the issue
@@ -28,7 +28,7 @@ Please include:
 - Suggested fix (if known)
 - Your environment (OS, container use, HPC system)
 
-We aim to acknowledge reports within **72 hours**.
+We aim to acknowledge reports within **120 hours**.
 
 ---
 
