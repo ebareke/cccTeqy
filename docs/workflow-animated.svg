@@ -1,0 +1,200 @@
+<svg width="1400" height="380" viewBox="0 0 1400 380" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background gradient for accents (not the main bg) -->
+    <linearGradient id="neon" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00bcd4"/>
+      <stop offset="50%" stop-color="#7b1fa2"/>
+      <stop offset="100%" stop-color="#ff4081"/>
+    </linearGradient>
+
+    <!-- Connector animation gradient -->
+    <linearGradient id="connectorGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#b0bec5" />
+      <stop offset="50%" stop-color="#00bcd4">
+        <animate attributeName="offset" values="0;1;0" dur="5s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#b0bec5" />
+    </linearGradient>
+
+    <!-- Node glow -->
+    <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#00bcd4" stop-opacity="0"/>
+    </radialGradient>
+
+    <style>
+      .title {
+        fill: #263238;
+        font-size: 34px;
+        font-family: "Orbitron", system-ui, sans-serif;
+        text-anchor: middle;
+      }
+      .subtitle {
+        fill: #607d8b;
+        font-size: 18px;
+        font-family: "Roboto", system-ui, sans-serif;
+        text-anchor: middle;
+      }
+      .node {
+        fill: #ffffff;
+        stroke: #eceff1;
+        stroke-width: 2;
+        rx: 18;
+        ry: 18;
+        filter: url(#shadow);
+      }
+      .node-outline {
+        stroke: url(#neon);
+        stroke-width: 3;
+        fill: none;
+      }
+      .nodetitle {
+        fill: #263238;
+        font-size: 18px;
+        font-family: "Roboto", system-ui, sans-serif;
+        text-anchor: middle;
+        dominant-baseline: central;
+        font-weight: 600;
+      }
+      .nodesub {
+        fill: #78909c;
+        font-size: 13px;
+        font-family: "Roboto Mono", monospace;
+        text-anchor: middle;
+        dominant-baseline: central;
+      }
+      .connector {
+        stroke: url(#connectorGrad);
+        stroke-width: 3.5;
+        stroke-linecap: round;
+      }
+      .arrowHead {
+        fill: #b0bec5;
+      }
+      .bg {
+        fill: #ffffff;
+      }
+      .footer {
+        fill: #455a64;
+        font-size: 15px;
+        font-family: "Roboto Mono", monospace;
+        text-anchor: middle;
+      }
+    </style>
+
+    <!-- Drop shadow filter for nodes -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#90a4ae" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <!-- White background -->
+  <rect class="bg" width="1400" height="380" />
+
+  <!-- Title -->
+  <text x="700" y="60" class="title">cccTeqy Workflow</text>
+  <text x="700" y="90" class="subtitle">From raw FASTQ to peaks and QC reports</text>
+
+  <!-- Positions -->
+  <!-- x coordinates for nodes: 120, 340, 560, 780, 1000, 1220 -->
+  <!-- y center for nodes: 200 -->
+
+  <!-- Connectors -->
+  <line x1="220" y1="200" x2="340" y2="200" class="connector">
+    <animate attributeName="stroke-dasharray" values="2,10;10,10;2,10" dur="3s" repeatCount="indefinite" />
+  </line>
+  <polygon points="340,200 330,195 330,205" class="arrowHead" />
+
+  <line x1="440" y1="200" x2="560" y2="200" class="connector">
+    <animate attributeName="stroke-dasharray" values="2,10;10,10;2,10" dur="3s" begin="0.5s" repeatCount="indefinite" />
+  </line>
+  <polygon points="560,200 550,195 550,205" class="arrowHead" />
+
+  <line x1="660" y1="200" x2="780" y2="200" class="connector">
+    <animate attributeName="stroke-dasharray" values="2,10;10,10;2,10" dur="3s" begin="1s" repeatCount="indefinite" />
+  </line>
+  <polygon points="780,200 770,195 770,205" class="arrowHead" />
+
+  <line x1="880" y1="200" x2="1000" y2="200" class="connector">
+    <animate attributeName="stroke-dasharray" values="2,10;10,10;2,10" dur="3s" begin="1.5s" repeatCount="indefinite" />
+  </line>
+  <polygon points="1000,200 990,195 990,205" class="arrowHead" />
+
+  <line x1="1100" y1="200" x2="1220" y2="200" class="connector">
+    <animate attributeName="stroke-dasharray" values="2,10;10,10;2,10" dur="3s" begin="2s" repeatCount="indefinite" />
+  </line>
+  <polygon points="1220,200 1210,195 1210,205" class="arrowHead" />
+
+  <!-- Node 1: FASTQ -->
+  <rect x="80" y="150" width="180" height="100" class="node" />
+  <rect x="80" y="150" width="180" height="100" class="node-outline">
+    <animate attributeName="stroke-opacity" values="0.2;1;0.2" dur="4s" repeatCount="indefinite" />
+  </rect>
+  <circle cx="170" cy="145" r="26" fill="url(#nodeGlow)" opacity="0.5">
+    <animate attributeName="r" values="18;26;18" dur="4s" repeatCount="indefinite" />
+  </circle>
+  <text x="170" y="185" class="nodetitle">FASTQ</text>
+  <text x="170" y="210" class="nodesub">Raw reads</text>
+
+  <!-- Node 2: QC -->
+  <rect x="300" y="150" width="180" height="100" class="node" />
+  <rect x="300" y="150" width="180" height="100" class="node-outline">
+    <animate attributeName="stroke-opacity" values="0.2;1;0.2" dur="4s" begin="0.4s" repeatCount="indefinite" />
+  </rect>
+  <circle cx="390" cy="145" r="26" fill="url(#nodeGlow)" opacity="0.5">
+    <animate attributeName="r" values="18;26;18" dur="4s" begin="0.4s" repeatCount="indefinite" />
+  </circle>
+  <text x="390" y="185" class="nodetitle">QC</text>
+  <text x="390" y="210" class="nodesub">FastQC</text>
+
+  <!-- Node 3: Align -->
+  <rect x="520" y="150" width="180" height="100" class="node" />
+  <rect x="520" y="150" width="180" height="100" class="node-outline">
+    <animate attributeName="stroke-opacity" values="0.2;1;0.2" dur="4s" begin="0.8s" repeatCount="indefinite" />
+  </rect>
+  <circle cx="610" cy="145" r="26" fill="url(#nodeGlow)" opacity="0.5">
+    <animate attributeName="r" values="18;26;18" dur="4s" begin="0.8s" repeatCount="indefinite" />
+  </circle>
+  <text x="610" y="185" class="nodetitle">Align</text>
+  <text x="610" y="210" class="nodesub">BWA MEM</text>
+
+  <!-- Node 4: Filter -->
+  <rect x="740" y="150" width="180" height="100" class="node" />
+  <rect x="740" y="150" width="180" height="100" class="node-outline">
+    <animate attributeName="stroke-opacity" values="0.2;1;0.2" dur="4s" begin="1.2s" repeatCount="indefinite" />
+  </rect>
+  <circle cx="830" cy="145" r="26" fill="url(#nodeGlow)" opacity="0.5">
+    <animate attributeName="r" values="18;26;18" dur="4s" begin="1.2s" repeatCount="indefinite" />
+  </circle>
+  <text x="830" y="180" class="nodetitle">Filter</text>
+  <text x="830" y="205" class="nodesub">MAPQ, dedup</text>
+
+  <!-- Node 5: QC2 -->
+  <rect x="960" y="150" width="180" height="100" class="node" />
+  <rect x="960" y="150" width="180" height="100" class="node-outline">
+    <animate attributeName="stroke-opacity" values="0.2;1;0.2" dur="4s" begin="1.6s" repeatCount="indefinite" />
+  </rect>
+  <circle cx="1050" cy="145" r="26" fill="url(#nodeGlow)" opacity="0.5">
+    <animate attributeName="r" values="18;26;18" dur="4s" begin="1.6s" repeatCount="indefinite" />
+  </circle>
+  <text x="1050" y="178" class="nodetitle">QC suite</text>
+  <text x="1050" y="203" class="nodesub">Picard, Preseq</text>
+  <text x="1050" y="223" class="nodesub">PhantomPeak</text>
+
+  <!-- Node 6: Peaks / Reports -->
+  <rect x="1180" y="150" width="180" height="100" class="node" />
+  <rect x="1180" y="150" width="180" height="100" class="node-outline">
+    <animate attributeName="stroke-opacity" values="0.2;1;0.2" dur="4s" begin="2s" repeatCount="indefinite" />
+  </rect>
+  <circle cx="1270" cy="145" r="26" fill="url(#nodeGlow)" opacity="0.5">
+    <animate attributeName="r" values="18;26;18" dur="4s" begin="2s" repeatCount="indefinite" />
+  </circle>
+  <text x="1270" y="175" class="nodetitle">Peaks and</text>
+  <text x="1270" y="197" class="nodetitle">reports</text>
+  <text x="1270" y="222" class="nodesub">MACS2, bigWig, MultiQC</text>
+
+  <!-- Footer textual workflow -->
+  <text x="700" y="320" class="footer">
+    FASTQ → FastQC → BWA MEM → Filtering → QC suite → MACS2 peaks → bigWig and MultiQC
+  </text>
+</svg>
