@@ -153,10 +153,9 @@ More details: **singularityhub-README.md**
 
 # 🧪 Workflow Overview
 
-![cccTeqy workflow overview](docs/workflow.svg)
-
-FASTQ → FastQC → BWA → Filtering → Picard → Preseq → Fragment Size → Cross-Correlation  
-       → MACS2 → FRiP → bigWig → MultiQC
+<p align="center">
+  <img src="docs/workflow-animated.svg" alt="cccTeqy animated workflow overview" width="900">
+</p>
 
 
 ---
