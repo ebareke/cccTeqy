@@ -56,7 +56,7 @@ This Code of Conduct applies to:
 
 ## 🆘 5. Enforcement
 Violations may be reported by contacting the maintainers at:
-📧 **epigenomics.pipeline@gmail.com** (placeholder contact)
+📧 **eb.bioinfo@pm.me**
 
 All complaints will be reviewed fairly and confidentially.
 
