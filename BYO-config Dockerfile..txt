@@ -1,0 +1,95 @@
+# ============================
+# Dockerfile (BYO Config Version)
+# ============================
+# Build:
+#   docker build -t cccteqy:latest .
+#
+# Run:
+#   docker run --rm -v /data:/data -v $PWD:/work \
+#       cccteqy:latest ./run.sh -c config.yaml -s samples.tsv
+
+FROM mambaorg/micromamba:1.5.0
+
+ARG MAMBA_DOCKERFILE_ACTIVATE=1
+
+RUN micromamba install -y -n base -c conda-forge -c bioconda \
+        bwa \
+        samtools \
+        bedtools \
+        macs2 \
+        fastqc \
+        picard \
+        preseq \
+        deeptools \
+        phantompeakqualtools \
+        r-base \
+        r-argparse \
+        multiqc \
+    && micromamba clean -a -y
+
+# Create working directory
+WORKDIR /opt/cccTeqy
+
+# Copy ONLY the pipeline script (BYO config & sample sheet)
+COPY run.sh /opt/cccTeqy/run.sh
+RUN chmod +x /opt/cccTeqy/run.sh
+
+ENV PATH=/opt/conda/bin:$PATH
+ENV PHANTOMPEAK_RSCRIPT=/opt/conda/bin/run_spp.R
+ENV RSCRIPT=Rscript
+ENV PICARD=picard
+
+ENTRYPOINT ["./run.sh"]
+CMD ["-h"]
+
+
+
+# ============================
+# Singularity (BYO Config Version)
+# ============================
+# Build:
+#   singularity build cccteqy.sif Singularity
+#
+# Run:
+#   singularity exec cccteqy.sif ./run.sh -c config.yaml -s samples.tsv
+
+Bootstrap: docker
+From: mambaorg/micromamba:1.5.0
+
+%labels
+    Author Ethan Bareke
+    Version v1.0.0
+    Description "cccTeqy — Autonomous Epigenomic Pipeline (BYO config)"
+
+%environment
+    export PATH=/opt/conda/bin:$PATH
+    export PHANTOMPEAK_RSCRIPT=/opt/conda/bin/run_spp.R
+    export RSCRIPT=Rscript
+    export PICARD=picard
+
+%post
+    echo "[Singularity] Installing cccTeqy dependencies" \
+      && micromamba install -y -n base -c conda-forge -c bioconda \
+            bwa \
+            samtools \
+            bedtools \
+            macs2 \
+            fastqc \
+            picard \
+            preseq \
+            deeptools \
+            phantompeakqualtools \
+            r-base \
+            r-argparse \
+            multiqc \
+      && micromamba clean -a -y \
+      && mkdir -p /opt/cccTeqy
+
+# Only copy run.sh (BYO config & sample sheet)
+%files
+    run.sh /opt/cccTeqy/run.sh
+
+%runscript
+    cd /opt/cccTeqy
+    echo "[cccTeqy] Executing inside Singularity container" >&2
+    exec ./run.sh "$@"
