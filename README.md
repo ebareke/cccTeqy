@@ -10,24 +10,6 @@ This README reflects the **latest full pipeline implementation**, built around t
 
 ---
 
-# 🧬 Futuristic Pipeline Banner
-
-
-<svg width="1000" height="260" viewBox="0 0 1000 260" xmlns="http://www.w3.org/2000/svg">
-  <defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00eaff"/><stop offset="100%" stop-color="#7f00ff"/></linearGradient></defs>
-  <rect width="1000" height="260" rx="22" fill="#0b0f19" stroke="url(#grad)" stroke-width="4"/>
-  <text x="500" y="70" font-size="40" fill="url(#grad)" text-anchor="middle">cccTeqy Pipeline</text>
-  <text x="500" y="115" font-size="18" fill="#cfd8dc" text-anchor="middle">Autonomous Epigenomic Processing Engine</text>
-  <circle cx="150" cy="180" r="45" fill="#111827" stroke="#00eaff" stroke-width="3"/><text x="150" y="186" fill="#00eaff" text-anchor="middle">QC</text>
-  <circle cx="350" cy="180" r="45" fill="#111827" stroke="#06d6a0" stroke-width="3"/><text x="350" y="186" fill="#06d6a0" text-anchor="middle">Align</text>
-  <circle cx="550" cy="180" r="45" fill="#111827" stroke="#ffb703" stroke-width="3"/><text x="550" y="186" fill="#ffb703" text-anchor="middle">Filter</text>
-  <circle cx="750" cy="180" r="45" fill="#111827" stroke="#ff007f" stroke-width="3"/><text x="750" y="186" fill="#ff007f" text-anchor="middle">Peaks</text>
-  <circle cx="900" cy="180" r="45" fill="#111827" stroke="#8cff00" stroke-width="3"/><text x="900" y="186" fill="#8cff00" text-anchor="middle">Reports</text>
-</svg>
-
-
----
-
 # ✨ Features
 
 - **Full Workflow Automation:** FASTQ → Peaks/QC/bigWigs/MultiQC
@@ -171,10 +153,11 @@ More details: **singularityhub-README.md**
 
 # 🧪 Workflow Overview
 
-```
-FASTQ → FastQC → BWA → Filtering → Picard → Preseq → Fragment Size → Cross-Correlation
+![cccTeqy workflow overview](docs/workflow.svg)
+
+FASTQ → FastQC → BWA → Filtering → Picard → Preseq → Fragment Size → Cross-Correlation  
        → MACS2 → FRiP → bigWig → MultiQC
-```
+
 
 ---
 
