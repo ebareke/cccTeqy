@@ -1,4 +1,4 @@
-# 🚀 **cccTeqy — Autonomous ChIP-seq / CUT&RUN / CUT&Tag Pipeline**
+# 🚀 **cccTeqy** <img src="https://img.shields.io/badge/status-active-success" align="right"/>
 
 > **NGS data — Processing Automation Engine**\
 > Full-stack, production-grade, HPC-enabled epigenomics automation pipeline.
